@@ -14,15 +14,36 @@
   #color1 {
     stop-color: #FF0000;
   }
+
   #color2 {
-    stop-color: #FFFF00;
+    stop-color: #FF00FF;
   }
+
   #color3 {
+    stop-color: #7055E2;
+  }
+
+  #color4 {
+    stop-color: #0099CC;
+  }
+
+  #color7 {
     stop-color: #99CC66;
   }
-  #color4 {
+
+  #color6 {
     stop-color: #00FFFF;
   }
+
+  #color5 {
+    stop-color: #0099CC;
+  }
+
+  #color8 {
+    stop-color: #FFFF00;
+  }
+
+
 
 @keyframes rotating {
     0% {
@@ -57,27 +78,39 @@
 }
 }
 
+/* @keyframes left-wing-flap {
+  0% {
+    transform: rotate3d(1, 1, 0, 40deg) rotateX(-10deg);
+  }
+  50% {
+    transform: rotate3d(1, 0.5, 0, -40deg) rotateX(10deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 40deg) rotateX(-10deg);
+  }
+} */
+
 @keyframes left-wing-flap {
-    0% {
-        transform: translate3d(0, 0, 0) scaleY(1) rotate3d(0, 1, 0, -40deg);
-    }
-    50% {
-        transform: translate3d(0, 0, 0) scaleY(1) rotate3d(0, 1, 0, 40deg);
-    }
-    100% {
-        transform: translate3d(0, 0, 0) scaleY(1) rotate3d(0, 1, 0, -40deg);
-    }
+  0% {
+    transform:rotateY(-60deg)rotateX(30deg);
+  }
+  50% {
+      transform:rotateY(60deg)rotateX(-30deg);
+  }
+  100% {
+    transform:rotateY(-60deg)rotateX(30deg);
+  }
 }
 
 @keyframes right-wing-flap {
     0% {
-        transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, -40deg);
+        transform:rotateX(60deg)rotateY(-30deg);
     }
     50% {
-        transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 40deg);
+        transform:rotateX(-60deg)rotateY(30deg);
     }
     100% {
-        transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, -40deg);
+      transform:rotateX(60deg)rotateY(-30deg);
     }
 }
 
@@ -154,8 +187,9 @@
   }
 
   .butterfly_container figure.butterfly .wing.left {
-    /* transform-origin: reverse; */
-    animation: left-wing-flap 2s infinite;
+    transform-origin: center;
+    animation: left-wing-flap 2s cubic-bezier(.75,.14,.26,.92) infinite;
+    transform-style: preserve-3d;
   }
 /* 
   #right_wing {
@@ -166,8 +200,8 @@
   
   
   .butterfly_container figure.butterfly .wing.right {
-    /* transform-origin: 10px 400px 90%; */
-    animation: right-wing-flap 2s infinite;
+    transform-origin: center;
+    animation: right-wing-flap 2s cubic-bezier(.75,.14,.26,.92) infinite;
     transform-style: preserve-3d;
   }
   
